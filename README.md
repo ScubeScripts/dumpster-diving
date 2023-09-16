@@ -4,7 +4,7 @@ Today I present you my Dumpster Diving script. This script allows you to search 
 
 ![](https://cdn.discordapp.com/attachments/1100114436250947607/1152656094594871417/Screenshot_2023-09-16_192328.png)
 
-## Requirements
+## Dependencies 
 
 > [ESX-Framework](https://github.com/esx-framework/esx-legacy)
 
