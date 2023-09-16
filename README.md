@@ -1,6 +1,7 @@
 # sc_dumpster-diving
 
 Today I present you my small Dumpster Diving script. This script allows you to search dumpsters all over the map. The script runs on the latest ESX version and needs a few other dependencies to work.
+### Please remember to add the items to the database! Update will follow soon!!!
 
 ![](https://cdn.discordapp.com/attachments/1100114436250947607/1152656094594871417/Screenshot_2023-09-16_192328.png)
 
