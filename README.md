@@ -1,1 +1,1 @@
-# dumpster-diving
+# sc_dumpster-diving
