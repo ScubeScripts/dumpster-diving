@@ -74,10 +74,10 @@ AddEventHandler('sc_dumpster:giveDumpsterReward', function()
 end)
 
 function startTimer(id, object)
-    while Timer > 0 do
+    while Config.Timer > 0 do
         Wait(1000)
-        Timer = Timer - 1000
-        if Timer == 0 then
+        Config.Timer = Config.Timer - 1000
+        if Config.Timer == 0 then
             TriggerClientEvent('sc_dumpster:removeDumpster', id, object)
         end
     end
