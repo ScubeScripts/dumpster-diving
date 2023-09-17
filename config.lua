@@ -13,8 +13,8 @@ Config.Locale = 'en'
 Config.Position = 'topright'
 
 --Default Config
-Config.Timer = 10 * 60000
-Config.searchTime = 10000
+Config.Timer = 10 * 60000 --Set here how long it takes to search the trash can again
+Config.searchTime = 10000 --Set here how long it takes to search the garbage can
 
 Config.dumpsterItems = {
     [1] = {chance = 2, id = 'glassbottle', name = 'Glass Bottle', quantity = math.random(1,3), limit = 10},
