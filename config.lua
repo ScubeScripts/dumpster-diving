@@ -37,6 +37,13 @@ Config.dumpsterItems = {
     [17] = {chance = 2, id = 'expiredburger', name = 'Expired Burger', quantity = 1, limit = 10}
 }
 
+--[1] =  -> Number of the Item
+--{chance = 2, -> It is important to note that the probabilities here are not given directly as percentages, but that the item.chance is interpreted as a value between 1 and 10. For example, if item.chance is 5, there is a 50% chance that the reward will be selected.
+--id = 'glassbottle', -> Name of the Item
+--name = 'Glass Bottle', -> Name of the Item
+--quantity = math.random(1,3), -> math.random(1,3) -> Between how much of it you could find OR quantity = 1, -> You can find only one of them
+--limit = 10}, -> How much of it you can have in your inventory (May not work with OX-Inventory)
+
 Translation = {
     ['en'] = {
         ['input'] = '~INPUT_CONTEXT~ Search trash can',
