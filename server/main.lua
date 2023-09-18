@@ -35,16 +35,28 @@ AddEventHandler('sc_dumpster:giveDumpsterReward', function()
                 if item.limit > 0 then
                     local count = xPlayer.getInventoryItem(item.id).count
                     if count >= item.limit then
-                        TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find_1'] .. item.name .. Translation[Config.Locale]['error'], 3000, Config.Position, true, 'error')
+                        if Config.BulletinEnable then
+                            TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find_1'] .. item.name .. Translation[Config.Locale]['error'], 3000, Config.Position, true, 'error')
+                        else
+                            TriggerClientEvent('esx:showNotification', source, Translation[Config.Locale]['find_1'] .. item.name .. Translation[Config.Locale]['error'])
+                        end
                     else
                         gotID[item.id] = true
-                        TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find_1'] .. item.name, 3000, Config.Position, true, 'success')
+                        if Config.BulletinEnable then
+                            TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find_1'] .. item.name, 3000, Config.Position, true, 'success')
+                        else
+                            TriggerClientEvent('esx:showNotification', source, Translation[Config.Locale]['find_1'] .. item.name)
+                        end
                         foundItem = true
                         xPlayer.addWeapon(item.id, 50)
                     end
                 else
                     gotID[item.id] = true
-                    TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find_1'] .. item.name, 3000, Config.Position, true, 'success')
+                    if Config.BulletinEnable then
+                        TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find_1'] .. item.name, 3000, Config.Position, true, 'success')
+                    else
+                        TriggerClientEvent('esx:showNotification', source, Translation[Config.Locale]['find_1'] .. item.name)
+                    end
                     foundItem = true
                     xPlayer.addWeapon(item.id, 50)
                 end
@@ -52,23 +64,39 @@ AddEventHandler('sc_dumpster:giveDumpsterReward', function()
                 if item.limit > 0 then
                     local count = xPlayer.getInventoryItem(item.id).count
                     if count >= item.limit then
-                        TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find'] .. item.quantity .. 'x ' .. item.name .. Translation[Config.Locale]['error'], 3000, Config.Position, true, 'error')
+                        if Config.BulletinEnable then
+                            TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find'] .. item.quantity .. 'x ' .. item.name .. Translation[Config.Locale]['error'], 3000, Config.Position, true, 'error')
+                        else
+                            TriggerClientEvent('esx:showNotification', source, Translation[Config.Locale]['find'] .. item.quantity .. 'x ' .. item.name .. Translation[Config.Locale]['error'])
+                        end
                     else
                         gotID[item.id] = true
-                        TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find'] .. item.quantity .. 'x ' .. item.name, 3000, Config.Position, true, 'success')
+                        if Config.BulletinEnable then
+                            TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find'] .. item.quantity .. 'x ' .. item.name, 3000, Config.Position, true, 'success')
+                        else
+                            TriggerClientEvent('esx:showNotification', source, Translation[Config.Locale]['find'] .. item.quantity .. 'x ' .. item.name)
+                        end
                         xPlayer.addInventoryItem(item.id, item.quantity)
                         foundItem = true
                     end
                 else
                     gotID[item.id] = true
-                    TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find'] .. item.quantity .. 'x ' .. item.name, 3000, Config.Position, true, 'success')
+                    if Config.BulletinEnable then
+                        TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find'] .. item.quantity .. 'x ' .. item.name, 3000, Config.Position, true, 'success')
+                    else
+                        TriggerClientEvent('esx:showNotification', source, Translation[Config.Locale]['find'] .. item.quantity .. 'x ' .. item.name)
+                    end
                     xPlayer.addInventoryItem(item.id, item.quantity)
                     foundItem = true
                 end
             end
         end
         if i == rolls and not gotID[item.id] and not foundItem then
-            TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find_2'], 3000, Config.Position, true, 'info')
+            if Config.BulletinEnable then
+                TriggerClientEvent('bulletin:send', source, Translation[Config.Locale]['find_2'], 3000, Config.Position, true, 'info')
+            else
+                TriggerClientEvent('esx:showNotification', source, Translation[Config.Locale]['find_2'])
+            end
         end
     end
 end)

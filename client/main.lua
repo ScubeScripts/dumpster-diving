@@ -23,7 +23,10 @@ Citizen.CreateThread(function()
                                 dumpsterFound = true
                             end
                             if i == #searched and dumpsterFound then
-                                exports.bulletin:Send(Translation[Config.Locale]['search_2'], 3000, Config.Position, true, 'error')
+                                if Config.BulletinEnable then
+                                    exports.bulletin:Send(Translation[Config.Locale]['search_2'], 3000, Config.Position, true, 'error')
+                                else
+                                end
                             elseif i == #searched and not dumpsterFound then
                                 startSearching(Config.searchTime, 'amb@prop_human_bum_bin@base', 'base', 'sc_dumpster:giveDumpsterReward')
                                 TriggerServerEvent('sc_dumpster:startDumpsterTimer', dumpster)
